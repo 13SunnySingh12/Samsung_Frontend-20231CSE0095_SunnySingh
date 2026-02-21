@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Samsung Workforce Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+    --blue:#0aa6ff;
+    --card:rgba(255,255,255,0.05);
+    --border:rgba(10,166,255,0.25);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+    padding:0 6vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(6px);
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{height:34px;}
+.logo span{
+    color:var(--blue);
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:var(--blue);
+    transition:.3s;
+}
+
+nav a:hover::after{width:100%;}
+
+.hero{
+    margin-top:70px;
+    height:70vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.hero video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,.4),#000);
+    z-index:-1;
+}
+
+.hero-content{
+    max-width:900px;
+    padding:0 8vw;
+}
+
+.hero-content h1{
+    font-size:clamp(30px,6vw,56px);
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    color:#ccc;
+    font-size:clamp(14px,2vw,18px);
+    line-height:1.6;
+}
+
+
+.section{
+    padding:80px 8vw;
+}
+
+.section-title{
+    font-size:clamp(22px,4vw,32px);
+    margin-bottom:40px;
+    border-left:5px solid var(--blue);
+    padding-left:15px;
+}
+
+.policy-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.policy-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:28px 24px;
+    transition:.3s;
+}
+
+.policy-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(10,166,255,0.2);
+}
+
+.policy-card h3{
+    color:var(--blue);
+    margin-bottom:12px;
+}
+
+.policy-card p{
+    color:#ccc;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:50px;
+    padding:16px 44px;
+    background:linear-gradient(45deg,var(--blue),#3cc4ff);
+    color:#000;
+    text-decoration:none;
+    border-radius:100px;
+    font-weight:700;
+    transition:.15s;
+}
+
+.btn:hover{transform:scale(1.05);}
+.btn:active{transform:scale(0.96);}
+
+@media(max-width:768px){
+    header{
+        padding:0 20px;
+    }
+
+    .hero-content{
+        text-align:center;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="samsung-logo.png" alt="Samsung">
+        <span>SAMSUNG WORKFORCE</span>
+    </div>
+    <nav>
+        <a href="#">Policies</a>
+        <a href="#">Compliance</a>
+        <a href="#">Support</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="samsung-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+        <h1>Samsung Workforce Portal</h1>
+        <p>
+            Centralized platform for workforce operations,
+            compliance governance, and internal enterprise systems.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Company Policies</h2>
+
+    <div class="policy-grid">
+        <div class="policy-card">
+            <h3>Device Security</h3>
+            <p>
+                All internal Samsung devices must comply with enterprise
+                security standards including encryption and access controls.
+            </p>
+        </div>
+
+        <div class="policy-card">
+            <h3>Global Operations</h3>
+            <p>
+                Workforce activities across all regions must strictly
+                follow Samsung corporate governance policies.
+            </p>
+        </div>
+
+        <div class="policy-card">
+            <h3>Data Protection</h3>
+            <p>
+                Sensitive R&D, product roadmap, and employee data
+                must remain confidential and protected.
+            </p>
+        </div>
+    </div>
+
+    <a href="add-user.html" class="btn">Add Employee</a>
+</section>
+
+</body>
+</html>
